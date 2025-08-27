@@ -19,6 +19,23 @@ function acf_blocks() {
 
         acf_register_block_type(
             array(
+                'name'            => 'hub_team',
+                'title'           => __( 'HUB Team' ),
+                'category'        => 'layout',
+                'icon'            => 'cover-image',
+                'render_template' => 'page-templates/blocks/hub-team.php',
+                'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+                ),
+            )
+        );
+
+        acf_register_block_type(
+            array(
                 'name'            => 'hub_listing_details',
                 'title'           => __( 'HUB Listing Details' ),
                 'category'        => 'layout',

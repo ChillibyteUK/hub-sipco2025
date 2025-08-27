@@ -227,12 +227,12 @@ function cb_gutenberg_admin_styles() {
 
             @media (min-width:992px) {
                 .acf-block-component .acf-checkbox-list {
-                    columns: 3;
+                    columns: 1;
                 }
             }
             @media (min-width:1200px) {
                 .acf-block-component .acf-checkbox-list {
-                    columns: 4;
+                    columns: 1;
                 }
             }
         </style>
@@ -278,7 +278,7 @@ function get_the_top_ancestor_id() {
  * This function replaces specific characters in the input string with their escaped equivalents
  * before encoding it into JSON format.
  *
- * @param string $input_string The input string to encode.
+ * @param string $content The input string to encode.
  * @return string The JSON-encoded string with additional escaping.
  */
 function cb_json_encode( $content ) {
@@ -674,9 +674,12 @@ function get_gutenberg_h2_headings_from_page() {
 /**
  * Disable Contact Form 7 autop (no <p>/<br> wrapping).
  */
-add_filter( 'wpcf7_autop_or_not', function () {
-    return false;
-} );
+add_filter(
+	'wpcf7_autop_or_not',
+	function () {
+		return false;
+	}
+);
 
 /**
  * Disables TinyMCE cleanup to prevent stripping of JavaScript.

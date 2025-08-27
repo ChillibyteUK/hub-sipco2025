@@ -73,3 +73,49 @@
 
 */
 
+const people = document.querySelectorAll('.hub-team__card');
+const bios = document.querySelectorAll('.bio-card');
+
+people.forEach((person) => {
+    person.addEventListener('click', (e) => {
+
+        people.forEach((member) => {
+            member.classList.remove('reveal');
+        });
+
+        person.classList.add('reveal');
+
+        let who = person.getAttribute('id')
+
+        const shown = document.querySelectorAll('.bio-show');
+        shown.forEach((elem) => {
+            elem.remove();
+        });
+
+        const newItem = document.createElement('div');
+        newItem.classList.add('bio-show');
+
+        
+        const content = document.getElementById(who + '-info');
+        
+        newItem.innerHTML = content.innerHTML;
+        
+        person.after(newItem);
+
+        e.stopPropagation();
+    })
+})
+
+
+// Add click event listener to the document
+document.addEventListener("click", () => {
+    // Remove "active" class from all elements
+    people.forEach((member) => {
+    	member.classList.remove("reveal");
+    });
+    const shown = document.querySelectorAll('.bio-show');
+    shown.forEach((elem) => {
+        elem.remove();
+    });
+
+});

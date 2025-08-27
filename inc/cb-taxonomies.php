@@ -16,8 +16,8 @@ function cb_register_taxes() {
 
     $args = array(
         'labels'             => array(
-            'name'          => 'Work Types',
-            'singular_name' => 'Work Type',
+            'name'          => 'Teams',
+            'singular_name' => 'Team',
         ),
         'public'             => true,
         'publicly_queryable' => true,
@@ -30,6 +30,6 @@ function cb_register_taxes() {
         'show_in_rest'       => true,
         'rewrite'            => false,
     );
-    register_taxonomy( 'work_type', array( 'attachment' ), $args );
+    register_taxonomy( 'team', array( 'person' ), $args );
 }
-// add_action( 'init', 'cb_register_taxes' );
+add_action( 'init', 'cb_register_taxes' );

@@ -23,11 +23,11 @@ if ( session_status() === PHP_SESSION_NONE ) {
         charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1">
     <link rel="preload"
-        href="<?= esc_url( get_stylesheet_directory_uri() . '/fonts/Acumin-BdPro.woff' ); ?>"
-        as="font" type="font/woff" crossorigin="anonymous">
+        href="<?= esc_url( get_stylesheet_directory_uri() . '/fonts/acumin-pro-400.woff2' ); ?>"
+        as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload"
-        href="<?= esc_url( get_stylesheet_directory_uri() . '/fonts/Acumin-RPro.woff' ); ?>"
-        as="font" type="font/woff" crossorigin="anonymous">
+        href="<?= esc_url( get_stylesheet_directory_uri() . '/fonts/acumin-pro-700.woff2' ); ?>"
+        as="font" type="font/woff2" crossorigin="anonymous">
     <?php
     if ( ! is_user_logged_in() ) {
         if ( get_field( 'ga_property', 'options' ) ) {
