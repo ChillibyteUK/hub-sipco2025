@@ -1,0 +1,93 @@
+{
+  "version": 2,
+  "settings": {
+    "color": {
+      "palette": [
+        {
+          "name": "white",
+          "slug": "white",
+          "color": "hsl(0 0% 100%)"
+        },
+        {
+          "name": "black",
+          "slug": "black",
+          "color": "hsl(0 0% 0%)"
+        },
+        {
+          "name": "sipco-navy",
+          "slug": "sipco-navy",
+          "color": "hsl(210 30% 20%)"
+        },
+        {
+          "name": "sipco-red",
+          "slug": "sipco-red",
+          "color": "hsl(353 60% 38%)"
+        },
+        {
+          "name": "dark-grey",
+          "slug": "dark-grey",
+          "color": "hsl(0 0% 44%)"
+        },
+        {
+          "name": "light-gold",
+          "slug": "light-gold",
+          "color": "hsl(47 18% 90%)"
+        },
+        {
+          "name": "sipco-grey",
+          "slug": "sipco-grey",
+          "color": "hsl(47 18% 90%)"
+        }
+      ]
+    },
+    "typography": {
+      "fontSizes": [
+        {
+          "name": "base",
+          "slug": "base",
+          "size": "16px"
+        },
+        {
+          "name": "body",
+          "slug": "body",
+          "size": "1rem"
+        },
+        {
+          "name": "body-medium",
+          "slug": "body-medium",
+          "size": "1.3rem"
+        },
+        {
+          "name": "h1-big-page-title",
+          "slug": "h1-big-page-title",
+          "size": "2.4rem"
+        },
+        {
+          "name": "h2-page-subtitle",
+          "slug": "h2-page-subtitle",
+          "size": "1.8rem"
+        },
+        {
+          "name": "h3-page-subtitle",
+          "slug": "h3-page-subtitle",
+          "size": "1.4rem"
+        },
+        {
+          "name": "h4-body-bold",
+          "slug": "h4-body-bold",
+          "size": "1.3rem"
+        },
+        {
+          "name": "large-text-on-image",
+          "slug": "large-text-on-image",
+          "size": "1.8rem"
+        },
+        {
+          "name": "button-text",
+          "slug": "button-text",
+          "size": "1rem"
+        }
+      ]
+    }
+  }
+}
