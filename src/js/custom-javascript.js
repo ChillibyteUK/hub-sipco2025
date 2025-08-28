@@ -73,49 +73,71 @@
 
 */
 
-const people = document.querySelectorAll('.hub-team__card');
-const bios = document.querySelectorAll('.bio-card');
+const grid = document.querySelector('.hub-team__grid');
+let openDetail, openCard;
 
-people.forEach((person) => {
-    person.addEventListener('click', (e) => {
+function closeDetail(animated = true) {
+    if (!openDetail) return;
 
-        people.forEach((member) => {
-            member.classList.remove('reveal');
-        });
+    if (animated) {
+    openDetail.classList.add('fade-out');
+    openDetail.addEventListener('animationend', () => {
+        if (openDetail) openDetail.remove();
+        openDetail = null;
+    }, { once: true });
+    } else {
+    openDetail.remove();
+    openDetail = null;
+    }
 
-        person.classList.add('reveal');
+    if (openCard) openCard.classList.remove('active');
+    grid.classList.remove('has-detail');
+    openCard = null;
+}
 
-        let who = person.getAttribute('id')
+grid.addEventListener('click', e => {
+    const card = e.target.closest('.hub-team__card');
+    if (!card) return;
 
-        const shown = document.querySelectorAll('.bio-show');
-        shown.forEach((elem) => {
-            elem.remove();
-        });
+    // toggle off if clicking same card again
+    if (openCard === card) {
+    closeDetail();
+    return;
+    }
 
-        const newItem = document.createElement('div');
-        newItem.classList.add('bio-show');
+    // clear previous detail
+    closeDetail(false);
 
-        
-        const content = document.getElementById(who + '-info');
-        
-        newItem.innerHTML = content.innerHTML;
-        
-        person.after(newItem);
+    // clone hidden HTML inside this card
+    const hidden = card.querySelector('.detail-content');
+    const detail = document.createElement('div');
+    detail.className = 'detail';
+    detail.innerHTML = hidden.innerHTML;
 
-        e.stopPropagation();
-    })
-})
+    // insert after the correct row
+    const cards = Array.from(grid.children).filter(el => el.classList.contains('hub-team__card'));
+    const index = cards.indexOf(card);
+    const cols = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
+    const rowEnd = Math.ceil((index + 1) / cols) * cols - 1;
+    const insertAfter = cards[Math.min(rowEnd, cards.length - 1)];
+    insertAfter.insertAdjacentElement('afterend', detail);
 
+    // mark active states
+    card.classList.add('active');
+    grid.classList.add('has-detail');
 
-// Add click event listener to the document
-document.addEventListener("click", () => {
-    // Remove "active" class from all elements
-    people.forEach((member) => {
-    	member.classList.remove("reveal");
-    });
-    const shown = document.querySelectorAll('.bio-show');
-    shown.forEach((elem) => {
-        elem.remove();
-    });
+    openDetail = detail;
+    openCard = card;
+});
 
+// click outside to close
+document.addEventListener('click', e => {
+    if (openDetail && !grid.contains(e.target)) {
+    closeDetail();
+    }
+});
+
+// close detail on resize
+window.addEventListener('resize', () => {
+    closeDetail(false);
 });

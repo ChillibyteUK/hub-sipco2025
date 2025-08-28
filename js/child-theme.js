@@ -6941,38 +6941,70 @@
 
 	*/
 
-	const people = document.querySelectorAll('.hub-team__card');
-	document.querySelectorAll('.bio-card');
-	people.forEach(person => {
-	  person.addEventListener('click', e => {
-	    people.forEach(member => {
-	      member.classList.remove('reveal');
+	const grid = document.querySelector('.hub-team__grid');
+	let openDetail, openCard;
+	function closeDetail(animated = true) {
+	  if (!openDetail) return;
+	  if (animated) {
+	    openDetail.classList.add('fade-out');
+	    openDetail.addEventListener('animationend', () => {
+	      if (openDetail) openDetail.remove();
+	      openDetail = null;
+	    }, {
+	      once: true
 	    });
-	    person.classList.add('reveal');
-	    let who = person.getAttribute('id');
-	    const shown = document.querySelectorAll('.bio-show');
-	    shown.forEach(elem => {
-	      elem.remove();
-	    });
-	    const newItem = document.createElement('div');
-	    newItem.classList.add('bio-show');
-	    const content = document.getElementById(who + '-info');
-	    newItem.innerHTML = content.innerHTML;
-	    person.after(newItem);
-	    e.stopPropagation();
-	  });
+	  } else {
+	    openDetail.remove();
+	    openDetail = null;
+	  }
+	  if (openCard) openCard.classList.remove('active');
+	  grid.classList.remove('has-detail');
+	  openCard = null;
+	}
+	grid.addEventListener('click', e => {
+	  const card = e.target.closest('.hub-team__card');
+	  if (!card) return;
+
+	  // toggle off if clicking same card again
+	  if (openCard === card) {
+	    closeDetail();
+	    return;
+	  }
+
+	  // clear previous detail
+	  closeDetail(false);
+
+	  // clone hidden HTML inside this card
+	  const hidden = card.querySelector('.detail-content');
+	  const detail = document.createElement('div');
+	  detail.className = 'detail';
+	  detail.innerHTML = hidden.innerHTML;
+
+	  // insert after the correct row
+	  const cards = Array.from(grid.children).filter(el => el.classList.contains('hub-team__card'));
+	  const index = cards.indexOf(card);
+	  const cols = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
+	  const rowEnd = Math.ceil((index + 1) / cols) * cols - 1;
+	  const insertAfter = cards[Math.min(rowEnd, cards.length - 1)];
+	  insertAfter.insertAdjacentElement('afterend', detail);
+
+	  // mark active states
+	  card.classList.add('active');
+	  grid.classList.add('has-detail');
+	  openDetail = detail;
+	  openCard = card;
 	});
 
-	// Add click event listener to the document
-	document.addEventListener("click", () => {
-	  // Remove "active" class from all elements
-	  people.forEach(member => {
-	    member.classList.remove("reveal");
-	  });
-	  const shown = document.querySelectorAll('.bio-show');
-	  shown.forEach(elem => {
-	    elem.remove();
-	  });
+	// click outside to close
+	document.addEventListener('click', e => {
+	  if (openDetail && !grid.contains(e.target)) {
+	    closeDetail();
+	  }
+	});
+
+	// close detail on resize
+	window.addEventListener('resize', () => {
+	  closeDetail(false);
 	});
 
 	exports.Alert = Alert;
