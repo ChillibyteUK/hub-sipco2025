@@ -22069,7 +22069,7 @@ a.image-16x9 img {
     width: calc(50% - 1rem);
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   .hub-team__card {
     width: calc(33% - 2rem);
   }
