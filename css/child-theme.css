@@ -22066,10 +22066,10 @@ a.image-16x9 img {
 }
 @media (min-width: 992px) {
   .hub-team__card {
-    width: calc(50% - 2rem);
+    width: calc(50% - 1rem);
   }
 }
-@media screen {
+@media (min-width: 1200px) {
   .hub-team__card {
     width: calc(33% - 2rem);
   }

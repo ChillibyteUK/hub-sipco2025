@@ -14,9 +14,9 @@
         position: relative;
         width: 100%;
         @media (min-width:992px) {
-            width: calc(50% - 2rem);
+            width: calc(50% - 1rem);
         }
-        @media screen {
+        @media (min-width:1200px) {
             width: calc(33% - 2rem);
         }
         margin-bottom: 1rem;
