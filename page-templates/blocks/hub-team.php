@@ -14,7 +14,7 @@ $team = get_field( 'team' );
 	<div class="container">
 		<h3 class="col-sipco-red mb-4"><?= esc_html( $team->name ); ?></h3>
 	</div>
-	<div class="container py-5">
+	<div class="container py-4">
 		<?php
 		$q = new WP_Query(
 			array(
