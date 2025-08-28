@@ -26,7 +26,7 @@ function cb_register_taxes() {
         'show_in_nav_menus'  => true,
         'show_tagcloud'      => false,
         'show_in_quick_edit' => true,
-        'show_admin_column'  => false,
+        'show_admin_column'  => true,
         'show_in_rest'       => true,
         'rewrite'            => false,
     );
