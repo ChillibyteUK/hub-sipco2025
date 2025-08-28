@@ -22058,11 +22058,21 @@ a.image-16x9 img {
   padding: 0;
   margin: 0;
   position: relative;
-  width: calc(33% - 2rem);
+  width: 100%;
   margin-bottom: 1rem;
   margin-inline-end: 0.5rem;
   text-align: start;
   transition: background-color var(--transition);
+}
+@media (min-width: 992px) {
+  .hub-team__card {
+    width: calc(50% - 2rem);
+  }
+}
+@media screen {
+  .hub-team__card {
+    width: calc(33% - 2rem);
+  }
 }
 .hub-team__card:hover {
   background-color: var(--col-sipco-red);
