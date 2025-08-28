@@ -34,7 +34,6 @@ $cards = get_field( 'cards' ) ? get_field( 'cards' ) : 'three-cards';
 			)
 		);
 
-
 		while ( $q->have_posts() ) {
 			$q->the_post();
 			?>

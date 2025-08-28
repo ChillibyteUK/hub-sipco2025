@@ -13,9 +13,9 @@
 
 /* Base button */
 .btn {
-  --_bg: transparent;
-  --_fg: var(--col-neutral-900);
-  --_bd: currentColor;
+  --_bg: var(--col-white);
+  --_fg: var(--col-sipco-red);
+  --_bd: var(--col-white);
 
   display: inline-flex;
   align-items: center;
@@ -25,7 +25,7 @@
   text-transform: uppercase;
 
   padding: var(--btn-py) var(--btn-px);
-  border-radius: var(--radius-base);
+  border-radius: 0;
   border: var(--btn-border-w) solid var(--_bd);
 
   background: var(--_bg);
@@ -36,13 +36,16 @@
   font-size: var(--fs-ui);
   line-height: 1;
 
-  box-shadow: var(--shadow-noninteractive);
-
   transition:
     background-color var(--btn-transition),
     color var(--btn-transition),
-    box-shadow var(--btn-transition),
     transform var(--btn-transition);
+
+  &:hover {
+    background-color: var(--_fg);
+    color: var(--_bg);
+    border-color: var(--_bg);
+  }
 }
 
 .btn:focus-visible {
@@ -55,74 +58,6 @@
   box-shadow: var(--shadow-active);
 }
 
-/* Primary (accent) */
-.btn--primary {
-  --_bg: var(--col-accent-400);
-  --_fg: var(--col-neutral-900);
-  --_bd: var(--col-accent-400);
-  color: var(--_fg);
-  background: var(--_bg);
-  border-color: var(--_bd);
-  box-shadow: var(--shadow-interactive);
-}
-.btn--primary:hover {
-  background: var(--col-accent-400-hover);
-  border-color: var(--col-accent-400-hover);
-  box-shadow: var(--shadow-interactive);
-  color: initial;
-}
-.btn--primary:active {
-  background: var(--col-accent-400-active);
-  border-color: var(--col-accent-400-active);
-  box-shadow: var(--shadow-active);
-}
-
-/* Secondary (subtle filled; for neutral emphasis) */
-.btn--secondary {
-  --_bg: var(--col-secondary-400);
-  --_fg: var(--col-neutral-900);
-  --_bd: var(--col-secondary-400);
-  color: var(--_fg);
-  background: var(--_bg);
-  border-color: var(--_bd);
-  box-shadow: var(--shadow-noninteractive);
-}
-.btn--secondary:hover {
-  background: hsl(32 14% 69%); /* taupe −4% lightness */
-  border-color: hsl(32 14% 69%);
-  box-shadow: var(--shadow-interactive);
-}
-.btn--secondary:active {
-  background: hsl(32 14% 63%); /* taupe −10% lightness */
-  border-color: hsl(32 14% 63%);
-  box-shadow: var(--shadow-active);
-}
-
-/* Ghost (text/button on light surfaces) */
-.btn--ghost {
-  --_bg: transparent;
-  --_fg: var(--col-neutral-900);
-  --_bd: var(--col-secondary-400);
-  color: var(--_fg);
-  background: var(--_bg);
-  border-color: var(--_bd);
-  font-size: var(--fs-ui);
-  line-height: 1;
-  box-shadow: var(--shadow-interactive);
-  transition:
-    box-shadow var(--btn-transition),
-    background-color var(--btn-transition);
-}
-.btn--ghost:hover {
-  background: color-mix(in hsl, var(--col-secondary-100) 70%, transparent);
-  box-shadow: var(--shadow-active);
-  border-color: var(--_bd);
-}
-.btn--ghost.active {
-  box-shadow: var(--shadow-active);
-  background-color: var(--col-accent-400);
-  border-color: var(--col-accent-400);
-}
 
 /* Disabled */
 .btn[disabled],
