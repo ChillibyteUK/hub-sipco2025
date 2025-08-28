@@ -22064,7 +22064,7 @@ a.image-16x9 img {
   text-align: start;
   transition: background-color var(--transition);
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .hub-team__card {
     width: calc(50% - 1rem);
   }
