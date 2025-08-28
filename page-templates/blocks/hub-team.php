@@ -9,12 +9,14 @@ defined( 'ABSPATH' ) || exit;
 
 $team = get_field( 'team' );
 
+$cards = get_field( 'cards' ) ? get_field( 'cards' ) : 'three-cards';
+
 ?>
 <section class="hub-team">
 	<div class="container">
 		<h3 class="col-sipco-red mb-4"><?= esc_html( $team->name ); ?></h3>
 	</div>
-	<div class="container hub-team__grid py-4">
+	<div class="container hub-team__grid py-4 <?= esc_attr( $cards ); ?>">
 		<?php
 		$q = new WP_Query(
 			array(

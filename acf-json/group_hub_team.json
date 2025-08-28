@@ -45,6 +45,32 @@
             "bidirectional": 0,
             "multiple": 0,
             "bidirectional_target": []
+        },
+        {
+            "key": "field_68b042bf397b2",
+            "label": "Cards",
+            "name": "cards",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "three-cards": "3 cards",
+                "four-cards": "4 cards"
+            },
+            "default_value": "three : 3 cards",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
         }
     ],
     "location": [
@@ -65,5 +91,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1756306743
+    "modified": 1756382525
 }

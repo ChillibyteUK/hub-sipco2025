@@ -22061,6 +22061,9 @@ a.image-16x9 img {
   .hub-team__grid {
     grid-template-columns: repeat(3, 1fr); /* desktop: 3 cols */
   }
+  .hub-team__grid.four-cards {
+    grid-template-columns: repeat(4, 1fr); /* desktop: 4 cols */
+  }
 }
 .hub-team__grid.has-detail .hub-team__card {
   opacity: 0.4;
